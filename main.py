@@ -1,15 +1,11 @@
 """
 Análisis de Fuga de Talento (Employee Attrition)
 Dataset: IBM HR Analytics
-Nivel: Junior Data Scientist
-
-Este script realiza un análisis predictivo básico para identificar
-empleados con mayor probabilidad de abandonar la empresa.
 """
 
-# ============================================
+
 # IMPORTS
-# ============================================
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -31,10 +27,10 @@ print("ANÁLISIS DE FUGA DE TALENTO - IBM HR ANALYTICS")
 print("="*60)
 print()
 
-# ============================================
+
 # 1. CARGA DE DATOS
-# ============================================
-print("1. CARGANDO DATOS...")
+
+print("1. Cargando datos...")
 # Leer el archivo CSV desde la misma carpeta
 df = pd.read_csv('datos.csv')
 
@@ -44,9 +40,9 @@ df['Attrition'] = df['Attrition'].map({'Yes': 1, 'No': 0})
 print(f"✓ Datos cargados: {df.shape[0]} empleados, {df.shape[1]} variables")
 print()
 
-# ============================================
+
 # 2. EXPLORACIÓN BÁSICA
-# ============================================
+
 print("2. EXPLORACIÓN BÁSICA DE DATOS")
 print("-" * 60)
 
@@ -69,7 +65,7 @@ print()
 print("\nValores nulos por columna:")
 nulos = df.isnull().sum()
 if nulos.sum() == 0:
-    print("✓ No hay valores nulos en el dataset")
+    print("No hay valores nulos en el dataset")
 else:
     print(nulos[nulos > 0])
 print()
@@ -80,10 +76,10 @@ print(df['Attrition'].value_counts())
 print(f"\nPorcentaje de empleados que se fueron: {df['Attrition'].mean()*100:.1f}%")
 print()
 
-# ============================================
+
 # 3. VISUALIZACIONES
-# ============================================
-print("3. GENERANDO VISUALIZACIONES...")
+
+print("3. Generando visualizaciones...")
 
 # 3.1 Distribución de Attrition
 plt.figure(figsize=(8, 6))
@@ -98,7 +94,7 @@ for i, v in enumerate(attrition_counts.values):
 plt.tight_layout()
 plt.savefig('distribucion_attrition.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Gráfico guardado: distribucion_attrition.png")
+print("Gráfico guardado: distribucion_attrition.png")
 
 # 3.2 Salario vs Attrition
 plt.figure(figsize=(10, 6))
@@ -109,7 +105,7 @@ plt.ylabel('Salario Mensual')
 plt.tight_layout()
 plt.savefig('salario_vs_attrition.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Gráfico guardado: salario_vs_attrition.png")
+print("Gráfico guardado: salario_vs_attrition.png")
 
 # 3.3 OverTime vs Attrition
 plt.figure(figsize=(10, 6))
@@ -123,7 +119,7 @@ plt.legend(['No se fue', 'Se fue'], title='Attrition')
 plt.tight_layout()
 plt.savefig('overtime_vs_attrition.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Gráfico guardado: overtime_vs_attrition.png")
+print("Gráfico guardado: overtime_vs_attrition.png")
 
 # 3.4 Distribución de Edad
 plt.figure(figsize=(10, 6))
@@ -137,7 +133,7 @@ plt.legend()
 plt.tight_layout()
 plt.savefig('distribucion_edad.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Gráfico guardado: distribucion_edad.png")
+print("Gráfico guardado: distribucion_edad.png")
 
 # 3.5 Heatmap de correlación
 plt.figure(figsize=(10, 8))
@@ -151,12 +147,12 @@ plt.title('Correlación entre Variables Principales', fontsize=14, fontweight='b
 plt.tight_layout()
 plt.savefig('heatmap_correlacion.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Gráfico guardado: heatmap_correlacion.png")
+print("Gráfico guardado: heatmap_correlacion.png")
 print()
 
-# ============================================
+
 # 4. PREPROCESAMIENTO
-# ============================================
+
 print("4. PREPROCESAMIENTO DE DATOS...")
 
 # 4.1 Seleccionar columnas importantes
@@ -166,14 +162,14 @@ columnas_seleccionadas = [
     'JobRole', 'Department', 'Attrition'
 ]
 df_modelo = df[columnas_seleccionadas].copy()
-print(f"✓ Seleccionadas {len(columnas_seleccionadas)-1} variables para el modelo")
+print(f"Seleccionadas {len(columnas_seleccionadas)-1} variables para el modelo")
 
 # 4.2 Verificar valores nulos
 if df_modelo.isnull().sum().sum() > 0:
     df_modelo = df_modelo.dropna()
-    print(f"✓ Eliminadas filas con valores nulos")
+    print(f"Eliminadas filas con valores nulos")
 else:
-    print("✓ No hay valores nulos")
+    print("No hay valores nulos")
 
 # 4.3 Convertir variables categóricas
 # OverTime: Yes/No a 1/0
@@ -184,18 +180,18 @@ le_job = LabelEncoder()
 le_dept = LabelEncoder()
 df_modelo['JobRole'] = le_job.fit_transform(df_modelo['JobRole'])
 df_modelo['Department'] = le_dept.fit_transform(df_modelo['Department'])
-print("✓ Variables categóricas convertidas a numéricas")
+print("Variables categóricas convertidas a numéricas")
 
 # 4.4 Separar variables X (features) y (target)
 X = df_modelo.drop('Attrition', axis=1)
 y = df_modelo['Attrition']
-print(f"✓ Variables separadas: X={X.shape}, y={y.shape}")
+print(f"Variables separadas: X={X.shape}, y={y.shape}")
 
 # 4.5 Split train/test (80/20)
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
-print(f"✓ Datos divididos: Train={X_train.shape[0]}, Test={X_test.shape[0]}")
+print(f"Datos divididos: Train={X_train.shape[0]}, Test={X_test.shape[0]}")
 
 # 4.6 Escalar variables numéricas
 scaler = StandardScaler()
@@ -204,23 +200,23 @@ columnas_numericas = ['Age', 'MonthlyIncome', 'YearsAtCompany',
                       'DistanceFromHome', 'JobSatisfaction', 'WorkLifeBalance']
 X_train[columnas_numericas] = scaler.fit_transform(X_train[columnas_numericas])
 X_test[columnas_numericas] = scaler.transform(X_test[columnas_numericas])
-print("✓ Variables numéricas escaladas con StandardScaler")
+print("Variables numéricas escaladas con StandardScaler")
 print()
 
-# ============================================
+
 # 5. MODELADO
-# ============================================
+
 print("5. ENTRENANDO MODELO...")
 
 # Random Forest Classifier
 model = RandomForestClassifier(random_state=42, n_estimators=100)
 model.fit(X_train, y_train)
-print("✓ Modelo Random Forest entrenado exitosamente")
+print("Modelo Random Forest entrenado exitosamente")
 
 # Hacer predicciones
 y_pred = model.predict(X_test)
 y_pred_proba = model.predict_proba(X_test)[:, 1]  # Probabilidad de Attrition=1
-print("✓ Predicciones realizadas")
+print("Predicciones realizadas")
 print()
 
 # ============================================
@@ -253,7 +249,7 @@ plt.xlabel('Predicho')
 plt.tight_layout()
 plt.savefig('matriz_confusion.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Gráfico guardado: matriz_confusion.png")
+print("Gráfico guardado: matriz_confusion.png")
 
 # 6.4 Curva ROC
 fpr, tpr, thresholds = roc_curve(y_test, y_pred_proba)
@@ -276,9 +272,9 @@ plt.close()
 print(f"✓ Gráfico guardado: curva_roc.png (AUC = {roc_auc:.2f})")
 print()
 
-# ============================================
+
 # 7. FEATURE IMPORTANCE
-# ============================================
+
 print("7. IMPORTANCIA DE VARIABLES")
 print("-" * 60)
 
@@ -302,7 +298,7 @@ plt.gca().invert_yaxis()
 plt.tight_layout()
 plt.savefig('feature_importance.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ Gráfico guardado: feature_importance.png")
+print("Gráfico guardado: feature_importance.png")
 
 # Interpretación simple
 var_mas_importante = feature_importance.iloc[0]['Variable']
@@ -311,9 +307,9 @@ print("para predecir si un empleado se irá o no. Esto significa que esta")
 print("característica tiene el mayor poder predictivo en nuestro modelo.")
 print()
 
-# ============================================
+
 # 8. GUARDAR RESULTADOS
-# ============================================
+
 print("8. GUARDANDO RESULTADOS...")
 
 # Preparar DataFrame con resultados
@@ -330,8 +326,8 @@ df_resultados = df_resultados.sort_values('Probabilidad_Attrition', ascending=Fa
 
 # Guardar a CSV
 df_resultados.to_csv('resultados_predicciones.csv', index=False)
-print(f"✓ Resultados guardados en: resultados_predicciones.csv")
-print(f"  Total de registros: {len(df_resultados)}")
+print(f"Resultados guardados en: resultados_predicciones.csv")
+print(f"Total de registros: {len(df_resultados)}")
 print()
 
 # Mostrar algunos ejemplos de alto riesgo
@@ -340,9 +336,9 @@ print(df_resultados[['Age', 'MonthlyIncome', 'OverTime', 'JobSatisfaction',
                      'Probabilidad_Attrition']].head(5))
 print()
 
-# ============================================
+
 # 9. CONCLUSIONES
-# ============================================
+
 print("="*60)
 print("CONCLUSIONES PRINCIPALES")
 print("="*60)
