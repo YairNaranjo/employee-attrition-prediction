@@ -184,5 +184,3 @@ Este proyecto es de código abierto con fines educativos y de portafolio. Siént
 
 **Dataset**: IBM HR Analytics Employee Attrition Dataset  
 **Lenguaje**: Python 3.7+  
-**Nivel**: Junior Data Scientist  
-**Fecha**: Diciembre 2024
