@@ -36,11 +36,11 @@ pip install pandas numpy scikit-learn matplotlib seaborn
 ### Paso 1: Preparar archivos
 Asegúrate de tener estos dos archivos en la misma carpeta:
 - `datos.csv` (dataset de IBM HR Analytics)
-- `analisis_attrition_junior.py` (script principal)
+- `main.py` (script principal)
 
 ### Paso 2: Ejecutar el script
 ```bash
-python analisis_attrition_junior.py
+python main.py
 ```
 
 ### Paso 3: Revisar resultados
