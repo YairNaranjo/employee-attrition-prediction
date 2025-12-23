@@ -1,4 +1,4 @@
-# 📊 Análisis Predictivo de Fuga de Talento (Employee Attrition)
+#  Análisis Predictivo de Fuga de Talento (Employee Attrition)
 
 ## Descripción del Proyecto
 
@@ -8,14 +8,14 @@ El objetivo principal es demostrar competencias en análisis de datos y machine 
 
 Este análisis incluye exploración de datos, visualizaciones, preprocesamiento, modelado con Random Forest y evaluación de resultados, todo implementado con código limpio y bien documentado.
 
-## 🎯 Resultados Principales
+##  Resultados Principales
 
 - **Accuracy del modelo**: ~85% (varía según la ejecución por aleatoriedad)
 - **Variables más importantes**: OverTime, MonthlyIncome, Age, YearsAtCompany
 - **Tasa de attrition**: ~16% de los empleados
 - **Empleados de alto riesgo identificados**: Se generan predicciones individuales con probabilidades
 
-## 📋 Requisitos
+##  Requisitos
 
 ### Librerías de Python necesarias:
 ```
@@ -31,7 +31,7 @@ seaborn
 pip install pandas numpy scikit-learn matplotlib seaborn
 ```
 
-## 🚀 Cómo Ejecutar el Proyecto
+##  Cómo Ejecutar el Proyecto
 
 ### Paso 1: Preparar archivos
 Asegúrate de tener estos dos archivos en la misma carpeta:
@@ -51,7 +51,7 @@ El script generará automáticamente:
 
 **Tiempo de ejecución aproximado**: 10-15 segundos
 
-## 📁 Archivos Generados
+##  Archivos Generados
 
 ### Visualizaciones (PNG):
 1. **distribucion_attrition.png** - Cantidad de empleados que se fueron vs se quedaron
@@ -70,7 +70,7 @@ El script generará automáticamente:
   - Columna `Probabilidad_Attrition`: probabilidad de 0 a 1
   - Ordenado por probabilidad descendente (mayor riesgo primero)
 
-## 🔍 Estructura del Análisis
+##  Estructura del Análisis
 
 ### 1. Carga y Exploración
 - Lectura del CSV
@@ -109,7 +109,7 @@ El script generará automáticamente:
 - Análisis de empleados de alto riesgo
 - Insights accionables para RH
 
-## 💼 Recomendaciones de Negocio
+##  Recomendaciones de Negocio
 
 Basado en los resultados del modelo:
 
@@ -137,7 +137,7 @@ Basado en los resultados del modelo:
 | JobRole | Rol/puesto del empleado |
 | Department | Departamento |
 
-## 🎓 Conceptos Aplicados
+##  Conceptos Aplicados
 
 - **Análisis Exploratorio de Datos (EDA)**
 - **Limpieza y preprocesamiento de datos**
@@ -150,7 +150,7 @@ Basado en los resultados del modelo:
 - **Feature importance**
 - **Visualización de datos**
 
-## ⚠️ Limitaciones y Mejoras Futuras
+##  Limitaciones y Mejoras Futuras
 
 ### Limitaciones del modelo actual:
 - No se realizó feature engineering avanzado
@@ -168,17 +168,7 @@ Basado en los resultados del modelo:
 - Analizar casos mal clasificados en detalle
 - Implementar un pipeline automatizado
 
-## 👤 Perfil del Desarrollador
-
-Este proyecto demuestra competencias de un **Data Scientist Junior** con:
-- Conocimiento sólido de fundamentos de ML
-- Capacidad de escribir código limpio y documentado
-- Entendimiento de métricas de evaluación
-- Habilidad para interpretar resultados
-- Comunicación clara de hallazgos
-- Preparado para aprender técnicas más avanzadas
-
-## 📝 Notas Técnicas
+##  Notas Técnicas
 
 - El modelo usa `random_state=42` para reproducibilidad
 - Las visualizaciones se guardan en alta resolución (300 DPI)
@@ -186,7 +176,7 @@ Este proyecto demuestra competencias de un **Data Scientist Junior** con:
 - Se priorizó claridad sobre optimización de performance
 - Total de líneas de código: ~300
 
-## 📧 Uso y Licencia
+##  Uso y Licencia
 
 Este proyecto es de código abierto con fines educativos y de portafolio. Siéntete libre de usar, modificar y compartir con atribución apropiada.
 
