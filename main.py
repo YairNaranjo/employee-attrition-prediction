@@ -219,9 +219,9 @@ y_pred_proba = model.predict_proba(X_test)[:, 1]  # Probabilidad de Attrition=1
 print("Predicciones realizadas")
 print()
 
-# ============================================
+
 # 6. EVALUACIÓN DEL MODELO
-# ============================================
+
 print("6. EVALUACIÓN DEL MODELO")
 print("-" * 60)
 
