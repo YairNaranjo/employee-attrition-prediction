@@ -123,7 +123,7 @@ Basado en los resultados del modelo:
 
 5. **Satisfacción Laboral**: Mantener encuestas regulares de satisfacción laboral y work-life balance, ya que son factores predictivos importantes.
 
-## 📊 Variables Utilizadas
+## Variables Utilizadas
 
 | Variable | Descripción |
 |----------|-------------|
